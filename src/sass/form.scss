@@ -37,11 +37,41 @@
         display: block;
       }
     }
+    .form-buttons{
+      display: flex;
+      justify-content: space-between;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      background-color: white;
+      padding: 20px;
+      box-sizing: border-box;
+      .back-button{
+        color: $secondary-text-color;
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+      .next-button{
+        background-color: $primary-text-color;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    }
   }
 }
 
 @include desktop {
   .form-container {
     position: unset;
+    .form-main-part{
+      height: 400px;
+    }
+    .form-buttons{
+      position: unset !important;
+    }
   }
 }
