@@ -1,19 +1,16 @@
 @import './variables';
 @import './mixins';
 
-@include mobile {
-    .navigation{
-        background-image: url('./../assets/images/bg-sidebar-mobile.svg');
-        background-size: cover;
-        height: 210px;
-    }
+.navigation{
+    background-image: url('./../assets/images/bg-sidebar-mobile.svg');
+    background-size: cover;
+    height: 210px;
 }
 .navigation-list{
-    padding: 0;
     display: flex;
     justify-content: center;
     padding-top: 30px;
-    .navigation-item {
+    .item-number {
         width: 35px;
         height: 35px;
         border: 1px solid white;
@@ -26,11 +23,47 @@
         font-weight: bold;
         margin:0 10px;
     }
-    .active{
-        color: $primary-text-color;
-        background-color: $active-bg-color;
-        border: none;
-    }
+
+}
+.active .item-number{
+    color: $primary-text-color;
+    background-color: $active-bg-color;
+    border: none;
+}
+.item-description{
+    display: none;
 }
 
-
+@include desktop {
+    .navigation{
+        background-image: url('./../assets/images/bg-sidebar-desktop.svg');
+        background-size: cover;
+        height: 100%;
+        width: 300px;
+    }
+    .navigation-list{
+        display: block;
+        margin-left: 20px;
+        margin-top: 0;
+    }
+    .navigation-item{
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        padding: 10px 0;
+        cursor: pointer;
+        .item-description{
+            margin-left: 10px;
+            display: block;
+        }
+        .item-step{
+            color: $secondary-text-color;
+            margin-bottom: 5px;
+        }
+        .item-title{
+            color: white;
+            font-weight: bold;
+        }
+    }
+    
+}

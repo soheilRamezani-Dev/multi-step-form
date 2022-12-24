@@ -1,13 +1,16 @@
+import NavigationItem from "./navigation/NavigationItem";
 
 const Navigation = () => {
-    return <div className="navigation">
-        <ul className="navigation-list">
-            <li className="navigation-item active">1</li>
-            <li className="navigation-item">2</li>
-            <li className="navigation-item">3</li>
-            <li className="navigation-item">4</li>
-        </ul>
+  return (
+    <div className="navigation">
+      <ul className="navigation-list">
+        <NavigationItem id={1} title={'YOUR INFO'} active />
+        <NavigationItem id={2} title={'YOUR INFO'}/>
+        <NavigationItem id={3} title={'YOUR INFO'}/>
+        <NavigationItem id={4} title={'YOUR INFO'}/>
+      </ul>
     </div>
-}
- 
+  );
+};
+
 export default Navigation;
