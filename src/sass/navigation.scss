@@ -1,0 +1,36 @@
+@import './variables';
+@import './mixins';
+
+@include mobile {
+    .navigation{
+        background-image: url('./../assets/images/bg-sidebar-mobile.svg');
+        background-size: cover;
+        height: 210px;
+    }
+}
+.navigation-list{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    .navigation-item {
+        width: 35px;
+        height: 35px;
+        border: 1px solid white;
+        list-style: none;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin:0 10px;
+    }
+    .active{
+        color: $primary-text-color;
+        background-color: $active-bg-color;
+        border: none;
+    }
+}
+
+
