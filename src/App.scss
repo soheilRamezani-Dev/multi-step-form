@@ -14,10 +14,6 @@ li {
 li {
   list-style: none;
 }
-.application {
-  width: 80%;
-  margin: 0 auto;
-}
 
 @include desktop {
   .app {
@@ -26,9 +22,12 @@ li {
     height: 100%;
   }
   .app-container {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
-    height: 700px;
+    height: 600px;
     display: flex;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
   }
 }
