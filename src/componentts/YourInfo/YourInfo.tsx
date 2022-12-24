@@ -9,9 +9,27 @@ const YourInfo = () => {
       </div>
       <div className="form-body">
         <form>
-          <FormItem name="Name" title="name" placeHolder= 'w.g. Stephen King' />
-          <FormItem name="Email Address" title="email" placeHolder= 'w.g. Stephen King' />
-          <FormItem name="Phone Number" title="name" placeHolder= 'w.g. Stephen King' />
+          <div className="form-main-part">
+            <FormItem
+              name="Name"
+              title="name"
+              placeHolder="e.g. Stephen King"
+            />
+            <FormItem
+              name="Email Address"
+              title="email"
+              placeHolder="e.g. stephenking@lorem.com"
+            />
+            <FormItem
+              name="Phone Number"
+              title="name"
+              placeHolder="w.g. +1 234 567 890"
+            />
+          </div>
+          <div className="form-buttons">
+            <span className="back-button">Go Back</span>
+            <button className="next-button">Next Step</button>
+          </div>
         </form>
       </div>
     </div>
