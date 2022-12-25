@@ -1,5 +1,6 @@
 import FormHeader from "../FormHeader";
 import PlansItem from "./PlansItem";
+import NextPrevButtons from "../NextPrevButtons";
 
 const Plans = () => {
   return (
@@ -9,7 +10,7 @@ const Plans = () => {
         description="you have the option of monthly or yearly billing"
       />
       <div className="form-body">
-        <ul className="plans-list">
+        <ul className="plans-list form-main-part">
           <PlansItem
             title="Arcade"
             icon="/assets/images/icon-arcade.svg"
@@ -33,6 +34,7 @@ const Plans = () => {
             description="2 mounth free"
           />
         </ul>
+        <NextPrevButtons back="Go Back" next="Next Step"/>
       </div>
     </>
   );
