@@ -1,0 +1,48 @@
+@import "../variables";
+
+.fishing-up-info {
+  background-color: $secondary-bg-color;
+  border-radius: 10px;
+  padding: 5px 15px;
+  color: $secondary-text-color;
+  .selected-plan {
+    border-bottom: 1px solid lightgray;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    .plan-title {
+      color: rgba($primary-text-color, 0.8);
+      font-weight: bold;
+    }
+    .change-button {
+      font-weight: lighter;
+    }
+  }
+  .price {
+    color: rgba($primary-text-color, 0.8);
+  }
+
+  .selected-add-ons {
+    margin: 10px 0;
+    .selected-addons-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+    }
+  }
+}
+.total {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  .total-title {
+    color: $secondary-text-color;
+  }
+  .total-price{
+      font-size: 13pt;
+      font-weight: bold;
+      color: rgb(133, 51, 242);
+  }
+}
