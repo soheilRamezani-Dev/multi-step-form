@@ -1,12 +1,13 @@
+import FormHeader from "../FormHeader";
 import FormItem from "./FormItem";
 
 const YourInfo = () => {
   return (
-    <div className="form-container">
-      <div className="form-header">
-        <h1>personal info</h1>
-        <p>please provide your name, email address and phone number</p>
-      </div>
+    <>
+      <FormHeader
+        title="personal info"
+        description="please provide your name, email address and phone number"
+      />
       <div className="form-body">
         <form>
           <div className="form-main-part">
@@ -32,7 +33,7 @@ const YourInfo = () => {
           </div>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 

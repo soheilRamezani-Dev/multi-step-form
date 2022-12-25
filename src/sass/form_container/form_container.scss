@@ -1,5 +1,7 @@
-@import "./variables";
-@import "./mixins";
+@import "../variables";
+@import "../mixins";
+@import './yourInfo.scss';
+@import './plans_form.scss';
 
 .form-container {
   background-color: white;
@@ -21,22 +23,6 @@
   }
   .form-body {
     margin: 15px;
-    .form-item {
-        margin: 10px 0;
-      .text-input {
-        box-sizing: border-box;
-        width: 100%;
-        display: block;
-        border: 1px solid lightgray;
-        padding: 10px;
-        margin: 5px 0;
-        border-radius: 5px;
-      }
-      .input-label {
-        color: $primary-text-color;
-        display: block;
-      }
-    }
     .form-buttons{
       display: flex;
       justify-content: space-between;

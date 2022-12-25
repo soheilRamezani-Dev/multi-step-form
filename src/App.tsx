@@ -1,6 +1,7 @@
 import "./App.scss";
-import Navigation from "./componentts/navigation";
-import YourInfo from "./componentts/YourInfo/YourInfo";
+import Navigation from "./componentts/navigation/navigation";
+import Plans from "./componentts/plan/Plans";
+//import YourInfo from "./componentts/YourInfo/YourInfo";
 
 function App() {
   return (
@@ -10,8 +11,10 @@ function App() {
         <Navigation />
 
         {/* body */}
-        
-        <YourInfo/>
+        <div className="form-container">
+          {/* <YourInfo/> */}
+          <Plans />
+        </div>
       </div>
     </div>
   );

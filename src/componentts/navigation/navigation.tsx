@@ -1,4 +1,4 @@
-import NavigationItem from "./navigation/NavigationItem";
+import NavigationItem from "./NavigationItem";
 
 const Navigation = () => {
   return (
