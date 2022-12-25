@@ -1,0 +1,35 @@
+@import '../variables';
+.add-ons-item{
+    display: flex;
+    padding: 15px 5px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    align-items: center;
+    margin: 20px 0;
+    cursor: pointer;
+    &.active{
+        border-color: $active-border-color;
+        background-color: rgba($active-border-color,0.04);
+    }
+    &>*{
+        margin: 0 7px;
+        cursor: pointer;
+    }
+    h4{
+        color:$primary-text-color;
+    }
+    .add-ons-price{
+        color:$active-border-color;
+    }
+    label{
+        flex-grow: 1;
+        .add-ons-description{
+            color: $secondary-text-color;
+        }
+    }
+    input{
+        width: 20px;
+        height: 20px;
+    }
+
+}
