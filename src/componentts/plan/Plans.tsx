@@ -1,8 +1,15 @@
 import FormHeader from "../FormHeader";
 import PlansItem from "./PlansItem";
 import NextPrevButtons from "../NextPrevButtons";
+import { useState } from "react";
 
 const Plans = () => {
+  const [monthlyOrYearly , setMonthlyOrYearly] = useState('monthly');
+  const monthlyOrYearlyHandler = (prevState:string)=>{
+    if(prevState==='monthly') setMonthlyOrYearly('yearly');
+    else setMonthlyOrYearly('monthly')
+    
+  }
   return (
     <>
       <FormHeader
@@ -35,9 +42,9 @@ const Plans = () => {
               description="2 mounth free"
             />
           </ul>
-          <div className="monthly-yearly-container monthly">
+          <div className={`form-body monthly-yearly-container ${monthlyOrYearly}`}>
             <div className="monthly-title">Monthly</div>
-            <div className="toggle-button">
+            <div onClick={()=>monthlyOrYearlyHandler(monthlyOrYearly)} className="toggle-button">
               <div className="toggle-button-circle"></div>
             </div>
             <div className="yearly-title">Yearly</div>

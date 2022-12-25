@@ -7,7 +7,7 @@
 
 @mixin monthly-or-yearly ($title) {
     @if $title == 'monthly' {
-        .toggle-button-circle{ left: 5px;}
+        .toggle-button-circle{ right: 25px;}
         .monthly-title{color: $primary-text-color;}
     } @else{
         .toggle-button-circle{ right: 5px;}
