@@ -1,4 +1,5 @@
 import FormHeader from "../FormHeader";
+import NextPrevButtons from "../NextPrevButtons";
 import FormItem from "./FormItem";
 
 const YourInfo = () => {
@@ -27,10 +28,7 @@ const YourInfo = () => {
               placeHolder="w.g. +1 234 567 890"
             />
           </div>
-          <div className="form-buttons">
-            <span className="back-button">Go Back</span>
-            <button className="next-button">Next Step</button>
-          </div>
+          <NextPrevButtons back="" next="Next Step"/>
         </form>
       </div>
     </>
