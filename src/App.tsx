@@ -14,6 +14,7 @@ function App() {
         <div className="form-container">
           {/* <YourInfo/> */}
           <Plans />
+
         </div>
       </div>
     </div>
