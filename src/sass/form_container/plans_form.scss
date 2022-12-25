@@ -22,6 +22,41 @@
     color: $primary-text-color;
   }
 }
+
+.monthly-yearly-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  background-color: rgba($primary-text-color,0.04);
+  &>div{
+    margin: 0 8px;
+    color: $secondary-text-color;
+  }
+  .toggle-button{
+    width: 45px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: $primary-text-color;
+    position: relative;
+    .toggle-button-circle{
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: white;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+  }
+}
+.monthly{
+  @include monthly-or-yearly(monthly);
+}
+.yearly{
+  @include monthly-or-yearly(yearly);
+}
+
 @include desktop {
   .plans-list {
     display: grid;
