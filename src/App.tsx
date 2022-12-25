@@ -1,5 +1,6 @@
 import "./App.scss";
 import AddOns from "./componentts/add-ons/AddOns";
+import FishingUp from "./componentts/fishing-up/FishingUp";
 import Navigation from "./componentts/navigation/navigation";
 //import Plans from "./componentts/plan/Plans";
 //import YourInfo from "./componentts/YourInfo/YourInfo";
@@ -15,8 +16,8 @@ function App() {
         <div className="form-container">
           {/* <YourInfo/> */}
           {/* <Plans /> */}
-          <AddOns/>
-
+          {/* <AddOns/> */}
+          <FishingUp />
         </div>
       </div>
     </div>
