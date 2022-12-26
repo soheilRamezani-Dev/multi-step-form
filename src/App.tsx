@@ -1,7 +1,8 @@
 import "./App.scss";
-import AddOns from "./componentts/add-ons/AddOns";
-import FishingUp from "./componentts/fishing-up/FishingUp";
+//import AddOns from "./componentts/add-ons/AddOns";
+//import FishingUp from "./componentts/fishing-up/FishingUp";
 import Navigation from "./componentts/navigation/navigation";
+import ThankYou from "./componentts/ThankYou";
 //import Plans from "./componentts/plan/Plans";
 //import YourInfo from "./componentts/YourInfo/YourInfo";
 
@@ -17,7 +18,8 @@ function App() {
           {/* <YourInfo/> */}
           {/* <Plans /> */}
           {/* <AddOns/> */}
-          <FishingUp />
+          {/* <FishingUp /> */}
+          <ThankYou/>
         </div>
       </div>
     </div>
