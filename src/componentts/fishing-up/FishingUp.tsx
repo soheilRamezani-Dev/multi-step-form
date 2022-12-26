@@ -1,5 +1,8 @@
 import FormHeader from "../FormHeader";
-import NextPrevButtons from '../NextPrevButtons'
+import NextPrevButtons from "../NextPrevButtons";
+import SelectedPlan from "./SelectedPlan";
+import SelectedAddOnsItem from "./SelectedAddOnsItem";
+import TotalPrice from "./TotalPrice";
 
 const FishingUp = () => {
   return (
@@ -12,28 +15,19 @@ const FishingUp = () => {
         <div className="form-main-part">
           <div className="fishing-up">
             <div className="fishing-up-info">
-              <div className="selected-plan">
-                <div>
-                  <div className="plan-title">Arcade (Yearly)</div>
-                  <div className="change-button">change</div>
-                </div>
-                <div className="price">$90/yr</div>
-              </div>
+              <SelectedPlan plan_title="Arcade (Yearly)" plan_price="$90/yr" />
               <div className="selected-add-ons">
-                <div className="selected-addons-item">
-                  <div className="selected-addons-title">online service</div>
-                  <div className="price">+$10/yr</div>
-                </div>
-                <div className="selected-addons-item">
-                  <div className="selected-addons-title">Larger Storage</div>
-                  <div className="price">+$20/yr</div>
-                </div>
+                <SelectedAddOnsItem
+                  addons_title="online service"
+                  addons_price="+$10/yr"
+                />
+                <SelectedAddOnsItem
+                  addons_title="Larger Storage"
+                  addons_price="+$20/yr"
+                />
               </div>
             </div>
-            <div className="total">
-              <div className="total-title">Total (per year)</div>
-              <div className="total-price">$120/yr</div>
-            </div>
+            <TotalPrice price="$120/yr" timeline="year" />
           </div>
         </div>
         <NextPrevButtons back="Go Back" next="Next Step" />
