@@ -47,12 +47,12 @@
         margin-left: 20px;
         margin-top: 0;
     }
-    .navigation-item{
+    .navigation-item-link{
+        text-decoration: none;
         display: flex;
         align-items: center;
         margin: 20px 0;
         padding: 10px 0;
-        cursor: pointer;
         .item-description{
             margin-left: 10px;
             display: block;

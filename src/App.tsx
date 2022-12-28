@@ -26,11 +26,7 @@ function App() {
           element: <AddOns />,
         },
         {
-          path: "/add-ons",
-          element: <AddOns />,
-        },
-        {
-          path: "/add-ons",
+          path: "/fishing-up",
           element: <FishingUp />,
         },
         {
