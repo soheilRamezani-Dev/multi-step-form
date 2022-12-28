@@ -28,7 +28,7 @@ const YourInfo = () => {
               placeHolder="w.g. +1 234 567 890"
             />
           </div>
-          <NextPrevButtons back="" next="Next Step"/>
+          <NextPrevButtons next="Next Step" next_url="/plans" />
         </form>
       </div>
     </>

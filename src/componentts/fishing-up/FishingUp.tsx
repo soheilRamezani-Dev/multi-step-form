@@ -30,7 +30,7 @@ const FishingUp = () => {
             <TotalPrice price="$120/yr" timeline="year" />
           </div>
         </div>
-        <NextPrevButtons back="Go Back" next="Next Step" />
+        <NextPrevButtons back="Go Back" back_url="/add-ons" next="Next Step" next_url="/thank-you" />
       </div>
     </>
   );
