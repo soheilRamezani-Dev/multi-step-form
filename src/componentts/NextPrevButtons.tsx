@@ -13,7 +13,8 @@ const NextPrevButtons = ({
 }) => {
   return (
     <div className="form-buttons">
-      {next !== "" && (  <input type='submit' value={next} className="next-button"/>)}
+      {next !== "" && !next_url && (  <input type='submit' value={next} className="next-button"/>)}
+      {next_url !== "" && (  <Link to={next_url}><span className="next-button">{next}</span></Link>)}
       {back !== undefined && back_url !== undefined && (
         <Link to={back_url}>
           <span className="back-button">{back}</span>

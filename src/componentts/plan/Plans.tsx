@@ -2,13 +2,32 @@ import FormHeader from "../FormHeader";
 import PlansItem from "./PlansItem";
 import NextPrevButtons from "../NextPrevButtons";
 import { useState } from "react";
+import plans from "../../api/plans_api";
+import { useSelector, useDispatch } from "react-redux";
+import StateType from "../../redux/stateType";
+import { changePeriod } from "../../redux/actions";
+import { changePlan } from "../../redux/actions";
 
 const Plans = () => {
-  const [monthlyOrYearly , setMonthlyOrYearly] = useState('monthly');
-  const monthlyOrYearlyHandler = (prevState:string)=>{
-    if(prevState==='monthly') setMonthlyOrYearly('yearly');
-    else setMonthlyOrYearly('monthly')
-    
+  const selector = useSelector((state: StateType) => state.plan);
+  const period = selector.period;
+  const selectedPlan = selector.selectedPlan;
+  const dispatch = useDispatch();
+  const [monthlyOrYearly, setMonthlyOrYearly] = useState(period);
+  const [activePlan, setActivePlan] = useState(selectedPlan);
+  const monthlyOrYearlyHandler = (prevState: string) => {
+    if (prevState === "monthly") {
+      setMonthlyOrYearly("yearly");
+    } else {
+      setMonthlyOrYearly("monthly");
+    }
+
+    dispatch(changePeriod(monthlyOrYearly));
+  };
+
+  const selectPlanHandler = (index:number) :void =>{
+    setActivePlan(index.toString());
+    dispatch(changePlan(index.toString()));
   }
   return (
     <>
@@ -19,38 +38,40 @@ const Plans = () => {
       <div className="form-body">
         <div className="form-main-part">
           <ul className="plans-list">
-            <PlansItem
-              title="Arcade"
-              icon="/assets/images/icon-arcade.svg"
-              monthPrice="$9/mo"
-              yearPrice="$90/yr"
-              description="2 mounth free"
-              active
-            />
-            <PlansItem
-              title="Advanced"
-              icon="/assets/images/icon-advanced.svg"
-              monthPrice="$12/mo"
-              yearPrice="$120/yr"
-              description="2 mounth free"
-            />
-            <PlansItem
-              title="Pro"
-              icon="/assets/images/icon-pro.svg"
-              monthPrice="$15/mo"
-              yearPrice="$150/yr"
-              description="2 mounth free"
-            />
+            {plans.map((plan, index) => (
+              <div onClick={()=>selectPlanHandler(index)}>
+                <PlansItem
+                  key={index}
+                  title={plan.name}
+                  icon={plan.icon}
+                  monthPrice={plan.monthly_price}
+                  yearPrice={plan.yearly_price}
+                  description={plan.description}
+                  period={monthlyOrYearly}
+                  active={index.toString() === activePlan ? true : false}
+                />
+              </div>
+            ))}
           </ul>
-          <div className={`form-body monthly-yearly-container ${monthlyOrYearly}`}>
+          <div
+            className={`form-body monthly-yearly-container ${monthlyOrYearly}`}
+          >
             <div className="monthly-title">Monthly</div>
-            <div onClick={()=>monthlyOrYearlyHandler(monthlyOrYearly)} className="toggle-button">
+            <div
+              onClick={() => monthlyOrYearlyHandler(monthlyOrYearly)}
+              className="toggle-button"
+            >
               <div className="toggle-button-circle"></div>
             </div>
             <div className="yearly-title">Yearly</div>
           </div>
         </div>
-        <NextPrevButtons back="Go Back" back_url="/" next="Next Step" next_url="/add-ons" />
+        <NextPrevButtons
+          back="Go Back"
+          back_url="/"
+          next="Next Step"
+          next_url="/add-ons"
+        />
       </div>
     </>
   );

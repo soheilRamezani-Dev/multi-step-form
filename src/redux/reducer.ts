@@ -1,6 +1,8 @@
 import StateType from "./stateType";
 import actionType from "./actionTypes";
+import plans from "../api/plans_api";
 
+const defaultplan = plans[0];
 const initialstate: StateType = {
   yourinfo: {
     name: "",
@@ -8,10 +10,8 @@ const initialstate: StateType = {
     phone: "",
   },
   plan: {
-    name: "",
-    period: "",
-    monthlyprice: "",
-    yearlyprice: "",
+    selectedPlan: '0',
+    period: "monthly",
   },
   add_ons: [],
   totalPrice: "",
@@ -31,6 +31,10 @@ const reducer = (
           phone: action.payload.phone,
         },
       };
+    case actionType.UPDATE_PERIOD:
+      return { ...state , plan:{...state.plan,period:action.payload.period} };
+      case actionType.UPDATE_PLAN:
+        return { ...state , plan:{...state.plan,selectedPlan:action.payload.selectedPlan} };
     default:
       return state;
   }
