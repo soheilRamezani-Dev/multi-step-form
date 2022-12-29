@@ -49,7 +49,7 @@ const AddOns = () => {
             ))}
           </div>
         </form>
-        <NextPrevButtons back="Go Back" next="Next Step" />
+        <NextPrevButtons back="Go Back" back_url="/plans" next="Next Step" next_url="/fishing-up" />
       </div>
     </div>
   );

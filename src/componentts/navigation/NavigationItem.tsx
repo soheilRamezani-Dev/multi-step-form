@@ -1,11 +1,27 @@
-const NavigationItem = ({id,title,active=false}:{id:number;title:string, active?:boolean}) => {
-    return <li className={`navigation-item ${active?'active':''}`}>
-    <div className="item-number">{id}</div>
-    <div className="item-description">
-      <div className="item-step">step {id}</div>
-      <div className="item-title">{title}</div>
-    </div>
-  </li>
-}
- 
+import { Link } from "react-router-dom";
+
+const NavigationItem = ({
+  id,
+  title,
+  url,
+  active = false,
+}: {
+  id: number;
+  title: string;
+  url: string;
+  active?: boolean;
+}) => {
+  return (
+    <li className={`navigation-item ${active ? "active" : ""}`}>
+      <Link className="navigation-item-link" to={url}>
+        <div className="item-number">{id}</div>
+        <div className="item-description">
+          <div className="item-step">step {id}</div>
+          <div className="item-title">{title}</div>
+        </div>
+      </Link>
+    </li>
+  );
+};
+
 export default NavigationItem;

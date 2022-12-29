@@ -18,7 +18,6 @@ const PlansItem = ({
   active=false,
 }: PlansItemInput) => {
   const [monthlyOrYearly, setMonthlyOrYearly] = useState("monthly");
-  console.log(icon);
   return (
     <li className={`plan-item ${active?'active':''}`}>
       <div className="plan-icon">

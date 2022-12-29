@@ -50,7 +50,7 @@ const Plans = () => {
             <div className="yearly-title">Yearly</div>
           </div>
         </div>
-        <NextPrevButtons back="Go Back" next="Next Step" />
+        <NextPrevButtons back="Go Back" back_url="/" next="Next Step" next_url="/add-ons" />
       </div>
     </>
   );
