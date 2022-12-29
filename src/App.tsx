@@ -6,7 +6,9 @@ import Plans from "./componentts/plan/Plans";
 import AddOns from "./componentts/add-ons/AddOns";
 import FishingUp from "./componentts/fishing-up/FishingUp";
 import ThankYou from "./componentts/ThankYou";
-
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import reducer from "./redux/reducer";
 function App() {
   const router = createBrowserRouter([
     {
@@ -36,7 +38,16 @@ function App() {
       ],
     },
   ]);
-  return <RouterProvider router={router} />;
+
+  
+  
+  const store = createStore(reducer);
+
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
 }
 
 export default App;
