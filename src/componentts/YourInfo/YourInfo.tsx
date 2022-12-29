@@ -57,7 +57,7 @@ const YourInfo = () => {
               blur={formik.handleBlur}
             />
             {formik.touched.name && formik.errors.name ? (
-              <div>{formik.errors.name}</div>
+              <div className="error">{formik.errors.name}</div>
             ) : null}
             <FormItem
               title="Email Address"
@@ -68,7 +68,7 @@ const YourInfo = () => {
               blur={formik.handleBlur}
             />
             {formik.touched.email && formik.errors.email ? (
-              <div>{formik.errors.email}</div>
+              <div className="error">{formik.errors.email}</div>
             ) : null}
             <FormItem
               title="Phone Number"
@@ -79,7 +79,7 @@ const YourInfo = () => {
               blur={formik.handleBlur}
             />
             {formik.touched.phone && formik.errors.phone ? (
-              <div>{formik.errors.phone}</div>
+              <div className="error"> {formik.errors.phone}</div>
             ) : null}
           </div>
           <NextPrevButtons next="Next Step" next_url="" />
