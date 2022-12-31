@@ -1,0 +1,17 @@
+@import '../variables';
+
+.thank-you{
+    text-align: center;
+    padding: 30px 0;
+    .thank-you-icon{
+        
+        padding: 10px 0;
+    }
+    .thank-you-title{
+        color: $primary-text-color;
+        padding: 10px 0;
+    }
+    .thank-you-description{
+        color: $secondary-text-color;
+    }
+}

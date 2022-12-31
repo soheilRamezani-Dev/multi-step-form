@@ -1,0 +1,77 @@
+@import "../variables";
+@import "../mixins";
+
+.plan-item {
+  display: flex;
+  border: 1px solid $border-color;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 15px 0;
+  cursor: pointer;
+  &.active {
+    border-color: $primary-text-color;
+    background: rgba($primary-text-color, 0.05);
+  }
+  .plan-description {
+    margin-left: 15px;
+  }
+  .plan-price {
+    color: $secondary-text-color;
+  }
+  .plan-description {
+    color: $primary-text-color;
+  }
+}
+
+.monthly-yearly-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  background-color: rgba($primary-text-color,0.04);
+  margin: 40px 0 !important;
+  border-radius: 10px;
+  &>div{
+    margin: 0 8px;
+    color: $secondary-text-color;
+  }
+  .toggle-button{
+    width: 45px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: $primary-text-color;
+    position: relative;
+    cursor: pointer;
+    .toggle-button-circle{
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: white;
+      position: absolute;
+      top: 5px;
+      transition: right ease-in-out 200ms;
+    }
+  }
+}
+.monthly{
+  @include monthly-or-yearly(monthly);
+}
+.yearly{
+  @include monthly-or-yearly(yearly);
+}
+
+@include desktop {
+  .plans-list {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+  .plan-item {
+    margin: 10px;
+    display: block;
+    max-height: 150px;
+    .plan-description{
+        margin-left: 0;
+        margin-top: 20px;
+    }
+  }
+}

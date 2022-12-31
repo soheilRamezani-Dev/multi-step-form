@@ -1,0 +1,16 @@
+@import'./variables';
+@mixin desktop {
+    @media (min-width:800px) {
+        @content;
+    }
+}
+
+@mixin monthly-or-yearly ($title) {
+    @if $title == 'monthly' {
+        .toggle-button-circle{ right: 25px;}
+        .monthly-title{color: $primary-text-color;}
+    } @else{
+        .toggle-button-circle{ right: 5px;}
+        .yearly-title{color: $primary-text-color;}
+    }
+}

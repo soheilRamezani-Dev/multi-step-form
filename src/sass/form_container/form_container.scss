@@ -1,0 +1,72 @@
+@import "../variables";
+@import "../mixins";
+@import './yourInfo.scss';
+@import './plans_form.scss';
+@import './add-ons.scss';
+@import './fishing-up.scss';
+@import './thank-you.scss';
+
+.form-container {
+  background-color: white;
+  border-radius: 20px;
+  position: absolute;
+  top: 130px;
+  width: 80%;
+  right: 8%;
+  padding: 20px 2%;
+  .form-header {
+    margin: 10px;
+    h1 {
+      color: $primary-text-color;
+      margin: 0;
+    }
+    p {
+      color: $secondary-text-color;
+    }
+  }
+  .form-body {
+    margin: 15px;
+    .form-buttons{
+      display: flex;
+      justify-content: space-between;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      background-color: white;
+      padding: 20px;
+      box-sizing: border-box;
+      flex-direction: row-reverse;
+      .back-button{
+        color: $secondary-text-color;
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+      .next-button{
+        background-color: $primary-text-color;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    }
+  }
+  .error{
+    color: red;
+    font-size: 10pt;
+    padding: 0 15px;
+  }
+}
+
+@include desktop {
+  .form-container {
+    position: unset;
+    .form-main-part{
+      height: 400px;
+    }
+    .form-buttons{
+      position: unset !important;
+    }
+  }
+}
