@@ -23,6 +23,12 @@
     font-weight: bold;
     margin: 0 10px;
   }
+  .navigation-item-link{
+    text-decoration: none;
+  }
+  .not-avilable a {
+    cursor: not-allowed;
+  }
 }
 .active .item-number {
   color: $primary-text-color;
@@ -65,7 +71,5 @@
       font-weight: bold;
     }
   }
-  .not-avilable a {
-    cursor: not-allowed;
-  }
+  
 }
