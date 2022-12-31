@@ -1,34 +1,16 @@
 import FormHeader from "../FormHeader";
 import NextPrevButtons from "../NextPrevButtons";
 import AddOnsItem from "./AddOnsItem";
+import add_ons from "../../api/add_ons_api";
+import { useSelector } from "react-redux";
+import StateType from "../../redux/stateType";
 
 const AddOns = () => {
-  interface AddOnsItem {
-    title: string;
-    descrption: string;
-    price: string;
-    active: boolean;
-  }
-  const addOns_api: AddOnsItem[] = [
-    {
-      title: "Online service",
-      descrption: "Access to multiplayer games",
-      price: "+$1/mo",
-      active: true,
-    },
-    {
-      title: "Larger Storage",
-      descrption: "Extera 1TB of cloud save",
-      price: "+$2/mo",
-      active: true,
-    },
-    {
-      title: "Customizable profile",
-      descrption: "Custom theme on your profile",
-      price: "+$2/mo",
-      active: false,
-    },
-  ];
+  const selector = useSelector((state: StateType) => state);
+  console.log(selector);
+  const addOnsState = selector.add_ons;
+  const period = selector.plan.period;
+  console.log(addOnsState);
   return (
     <div className="add-ons">
       <FormHeader
@@ -38,18 +20,25 @@ const AddOns = () => {
       <div className="form-body">
         <form>
           <div className="form-main-part">
-            {addOns_api.map((value, index) => (
+            {add_ons.map((value) => (
               <AddOnsItem
-                key={index}
+                key={value.id}
+                id={value.id}
                 title={value.title}
-                description={value.descrption}
-                price={value.price}
-                active={value.active}
+                description={value.description}
+                price={period==="monthly" ? value.monthlyPrice:value.yearlylyPrice}
+                period={period}
+                active={addOnsState.includes(value.id)}
               />
             ))}
           </div>
         </form>
-        <NextPrevButtons back="Go Back" back_url="/plans" next="Next Step" next_url="/fishing-up" />
+        <NextPrevButtons
+          back="Go Back"
+          back_url="/plans"
+          next="Next Step"
+          next_url="/fishing-up"
+        />
       </div>
     </div>
   );

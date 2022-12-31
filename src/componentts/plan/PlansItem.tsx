@@ -1,10 +1,9 @@
-import { useState } from "react";
 
 type PlansItemInput = {
   title: string;
   icon: string;
-  monthPrice: string;
-  yearPrice: string;
+  monthPrice: number;
+  yearPrice: number;
   period:string
   description?: string;
   active?:boolean
@@ -30,10 +29,10 @@ const PlansItem= ({
       <div className="plan-description">
         <h3 className="plan-title">{title}</h3>
         {period === "monthly" ? (
-          <div className="plan-price">{monthPrice}</div>
+          <div className="plan-price">${monthPrice}/mo</div>
         ) : (
           <>
-            <div className="plan-price">{yearPrice}</div>
+            <div className="plan-price">${yearPrice}/yr</div>
             <div className="plan-description">{description || ""}</div>
           </>
         )}

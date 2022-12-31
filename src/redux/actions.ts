@@ -11,15 +11,21 @@ export const changePersonalInfo = (yourInfo: {
   };
 };
 
-export const changePeriod = ( period: string ) => {
+export const changePeriod = (period: string) => {
   return {
     type: actionName.UPDATE_PERIOD,
-    payload: {period:period},
+    payload: { period: period },
   };
 };
-export const changePlan = ( planIndex: string ) => {
+export const changePlan = (planIndex: string) => {
   return {
     type: actionName.UPDATE_PLAN,
-    payload: {selectedPlan:planIndex},
+    payload: { selectedPlan: planIndex },
+  };
+};
+export const changeAddOns = (addOnsIndex: number) => {
+  return {
+    type: actionName.UPDATE_ADDONS,
+    payload: { selectedAddOns: addOnsIndex.toString() },
   };
 };

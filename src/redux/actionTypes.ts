@@ -2,5 +2,6 @@ const actionType ={
     UPDATE_YOUR_INFO:'UPDATE_YOUR_INFO',
     UPDATE_PERIOD:'UPDATE_PERIOD',
     UPDATE_PLAN:'UPDATE_PLAN',
+    UPDATE_ADDONS:'UPDATE_ADDONS',
 }
 export default actionType;

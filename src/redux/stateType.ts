@@ -7,8 +7,7 @@ export default interface StateType {
   plan: {
     selectedPlan: string;
     period: string;
-
   };
-  add_ons: never[];
+  add_ons: number[];
   totalPrice: string;
 }

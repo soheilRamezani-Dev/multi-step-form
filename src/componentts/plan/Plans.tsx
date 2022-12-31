@@ -13,22 +13,19 @@ const Plans = () => {
   const period = selector.period;
   const selectedPlan = selector.selectedPlan;
   const dispatch = useDispatch();
-  const [monthlyOrYearly, setMonthlyOrYearly] = useState(period);
   const [activePlan, setActivePlan] = useState(selectedPlan);
-  const monthlyOrYearlyHandler = (prevState: string) => {
-    if (prevState === "monthly") {
-      setMonthlyOrYearly("yearly");
-    } else {
-      setMonthlyOrYearly("monthly");
-    }
+  const monthlyOrYearlyHandler = () => {
 
-    dispatch(changePeriod(monthlyOrYearly));
+    if (period ==="monthly")dispatch(changePeriod("yearly"))
+    else dispatch(changePeriod("monthly"));
+    
   };
 
   const selectPlanHandler = (index:number) :void =>{
     setActivePlan(index.toString());
     dispatch(changePlan(index.toString()));
   }
+  {console.log(period)}
   return (
     <>
       <FormHeader
@@ -47,25 +44,27 @@ const Plans = () => {
                   monthPrice={plan.monthly_price}
                   yearPrice={plan.yearly_price}
                   description={plan.description}
-                  period={monthlyOrYearly}
+                  period={period}
                   active={index.toString() === activePlan ? true : false}
                 />
               </div>
             ))}
           </ul>
           <div
-            className={`form-body monthly-yearly-container ${monthlyOrYearly}`}
+            className={`form-body monthly-yearly-container ${period}`}
           >
             <div className="monthly-title">Monthly</div>
             <div
-              onClick={() => monthlyOrYearlyHandler(monthlyOrYearly)}
+              onClick={() => monthlyOrYearlyHandler()}
               className="toggle-button"
             >
+              
               <div className="toggle-button-circle"></div>
             </div>
             <div className="yearly-title">Yearly</div>
           </div>
         </div>
+        
         <NextPrevButtons
           back="Go Back"
           back_url="/"

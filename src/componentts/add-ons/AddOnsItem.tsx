@@ -1,28 +1,45 @@
-import {useState} from 'react';
+import { useDispatch } from "react-redux";
+import { changeAddOns } from "../../redux/actions";
+
 
 type AddOnsItemInputs = {
+  id:number;
   title: string;
   description: string;
-  price: string;
+  price: number;
+  period: string;
   active: boolean;
 };
 
 const AddOnsItem = ({
+  id,
   title,
   description,
   price,
+  period,
   active,
 }: AddOnsItemInputs) => {
-    const [addOnsActive,setaddOnsActive] = useState(active);
+  const dispatch = useDispatch();
+  const checkHandler = (): void => {
+    dispatch(changeAddOns(id));
+  };
 
   return (
-    <div onClick={()=> setaddOnsActive(prev=>!prev)} className={`add-ons-item ${addOnsActive?'active':''}`}>
-      <input readOnly name="online-sevice" type="checkbox" checked={addOnsActive} />
+    <div
+      onClick={checkHandler}
+      className={`add-ons-item ${active ? "active" : ""}`}
+    >
+      <input
+        readOnly
+        name="online-sevice"
+        type="checkbox"
+        checked={active}
+      />
       <label htmlFor="online-sevice">
         <h4>{title}</h4>
         <span className="add-ons-description">{description}</span>
       </label>
-      <span className="add-ons-price">{price}</span>
+      <span className="add-ons-price">{period==="monthly"? `$${price}/mo`:`$${price}/yr`}</span>
     </div>
   );
 };
