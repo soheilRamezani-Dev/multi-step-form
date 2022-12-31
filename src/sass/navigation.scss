@@ -2,7 +2,7 @@
 @import "./mixins";
 
 .navigation {
-  background-image: url("/images/bg-sidebar-mobile.svg");
+  background-image: url("/assets/images/bg-sidebar-mobile.svg");
   background-size: cover;
   height: 210px;
 }
@@ -35,7 +35,7 @@
 
 @include desktop {
   .navigation {
-    background-image: url("/images/bg-sidebar-desktop.svg");
+    background-image: url("/assets/images/bg-sidebar-desktop.svg");
     background-size: cover;
     height: 100%;
     width: 300px;
