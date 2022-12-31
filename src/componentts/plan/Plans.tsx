@@ -22,10 +22,9 @@ const Plans = () => {
   };
 
   const selectPlanHandler = (index:number) :void =>{
-    setActivePlan(index.toString());
-    dispatch(changePlan(index.toString()));
+    setActivePlan(index);
+    dispatch(changePlan(index));
   }
-  {console.log(period)}
   return (
     <>
       <FormHeader
@@ -35,17 +34,17 @@ const Plans = () => {
       <div className="form-body">
         <div className="form-main-part">
           <ul className="plans-list">
-            {plans.map((plan, index) => (
-              <div onClick={()=>selectPlanHandler(index)}>
+            {plans.map((plan) => (
+              <div onClick={()=>selectPlanHandler(plan.id)}>
                 <PlansItem
-                  key={index}
+                  key={plan.id}
                   title={plan.name}
                   icon={plan.icon}
                   monthPrice={plan.monthly_price}
                   yearPrice={plan.yearly_price}
                   description={plan.description}
                   period={period}
-                  active={index.toString() === activePlan ? true : false}
+                  active={plan.id === activePlan ? true : false}
                 />
               </div>
             ))}

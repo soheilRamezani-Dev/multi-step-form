@@ -17,10 +17,10 @@ export const changePeriod = (period: string) => {
     payload: { period: period },
   };
 };
-export const changePlan = (planIndex: string) => {
+export const changePlan = (planIndex: number) => {
   return {
     type: actionName.UPDATE_PLAN,
-    payload: { selectedPlan: planIndex },
+    payload: { selectedPlan: planIndex.toString() },
   };
 };
 export const changeAddOns = (addOnsIndex: number) => {

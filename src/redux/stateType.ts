@@ -5,7 +5,7 @@ export default interface StateType {
     phone: string;
   };
   plan: {
-    selectedPlan: string;
+    selectedPlan: number;
     period: string;
   };
   add_ons: number[];

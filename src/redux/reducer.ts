@@ -8,7 +8,7 @@ const initialstate: StateType = {
     phone: "",
   },
   plan: {
-    selectedPlan: "0",
+    selectedPlan: 0,
     period: "monthly",
   },
   add_ons: [],
@@ -37,7 +37,7 @@ const reducer = (
     case actionType.UPDATE_PLAN:
       return {
         ...state,
-        plan: { ...state.plan, selectedPlan: action.payload.selectedPlan },
+        plan: { ...state.plan, selectedPlan: Number(action.payload.selectedPlan) },
       };
     case actionType.UPDATE_ADDONS:
       let newAddOnsState: number[] = [];

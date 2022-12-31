@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const SelectedPlan = ({
   plan_title,
   plan_price,
@@ -9,7 +10,7 @@ const SelectedPlan = ({
     <div className="selected-plan">
       <div>
         <div className="plan-title">{plan_title}</div>
-        <div className="change-button">change</div>
+        <div className="change-button"><Link to={'/plans'}>change</Link></div>
       </div>
       <div className="price">{plan_price}</div>
     </div>

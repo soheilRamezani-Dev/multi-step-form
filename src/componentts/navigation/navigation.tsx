@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const { pathname } = useLocation();
-  console.log(pathname);
   return (
     <div className="navigation">
       <ul className="navigation-list">
@@ -16,10 +15,6 @@ const Navigation = () => {
             active={pathname === step.url ? true : false}
           />
         ))}
-
-        {/* <NavigationItem id={2} title={'SELECT PLAN'}/>
-        <NavigationItem id={3} title={'ADD-ONS'}/>
-        <NavigationItem id={4} title={'SUMMARY'}/> */}
       </ul>
     </div>
   );

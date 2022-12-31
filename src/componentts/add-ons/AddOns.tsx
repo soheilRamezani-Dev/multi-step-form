@@ -7,10 +7,8 @@ import StateType from "../../redux/stateType";
 
 const AddOns = () => {
   const selector = useSelector((state: StateType) => state);
-  console.log(selector);
   const addOnsState = selector.add_ons;
   const period = selector.plan.period;
-  console.log(addOnsState);
   return (
     <div className="add-ons">
       <FormHeader

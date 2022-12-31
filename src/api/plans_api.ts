@@ -1,4 +1,5 @@
-type Plans = {
+export type PlansType = {
+  id:number;
   name: string;
   monthly_price: number;
   yearly_price: number;
@@ -6,8 +7,9 @@ type Plans = {
   description: string;
 };
 
-const plans: Plans[] = [
+const plans: PlansType[] = [
   {
+    id:0,
     name: "Arcade",
     monthly_price: 9,
     yearly_price: 90,
@@ -15,6 +17,7 @@ const plans: Plans[] = [
     description: "2 mounth free",
   },
   {
+    id:1,
     name: "Advanced",
     monthly_price: 12,
     yearly_price:120,
@@ -22,6 +25,7 @@ const plans: Plans[] = [
     description: "2 mounth free",
   },
   {
+    id:2,
     name: "Pro",
     monthly_price:15,
     yearly_price: 150,
