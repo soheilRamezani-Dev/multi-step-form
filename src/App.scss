@@ -3,8 +3,13 @@
 @import "./sass/mixins";
 @import "./sass/variables";
 
+@font-face {
+  font-family: 'ubuntu';
+  src: url('./assets/fonts/Ubuntu-Regular.ttf') format('truetype');
+}
 body{
     background-color: $secondary-bg-color;
+    font-family: ubuntu;
   }
 ul,
 li {

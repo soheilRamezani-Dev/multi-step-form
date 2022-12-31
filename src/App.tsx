@@ -1,14 +1,19 @@
 import "./App.scss";
-import YourInfo from "./componentts/YourInfo/YourInfo";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import RootLayout from "./layout/rootLayout";
-import Plans from "./componentts/plan/Plans";
-import AddOns from "./componentts/add-ons/AddOns";
-import FishingUp from "./componentts/fishing-up/FishingUp";
-import ThankYou from "./componentts/ThankYou";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./redux/reducer";
+
+import { lazy, Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { startTransition } from "react";
+
+const RootLayout = lazy(() => import("./layout/rootLayout"));
+const YourInfo = lazy(() => import("./componentts/YourInfo/YourInfo"));
+const Plans = lazy(() => import("./componentts/plan/Plans"));
+const AddOns = lazy(() => import("./componentts/add-ons/AddOns"));
+const FishingUp = lazy(() => import("./componentts/fishing-up/FishingUp"));
+const ThankYou = lazy(() => import("./componentts/ThankYou"));
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -39,14 +44,14 @@ function App() {
     },
   ]);
 
-  
-  
   const store = createStore(reducer);
 
   return (
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    </Suspense>
   );
 }
 
