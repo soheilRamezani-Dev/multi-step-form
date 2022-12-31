@@ -7,9 +7,21 @@ import { useSelector } from "react-redux";
 import StateType from "../../redux/stateType";
 import plans from "../../api/plans_api";
 import add_ons from "../../api/add_ons_api";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const FishingUp = () => {
   const finalState = useSelector((state: StateType) => state);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (
+      finalState.yourinfo.name === "" ||
+      finalState.yourinfo.email === "" ||
+      finalState.yourinfo.phone === ""
+    ) {
+      navigate("/");
+    }
+  }, []);
   const selectedPlan = plans.filter(
     (paln) => paln.id === finalState.plan.selectedPlan
   );
@@ -29,8 +41,6 @@ const FishingUp = () => {
         selectedAddOns.forEach(val=>{ totalAddOnsPrice+=add_ons[val].yearlylyPrice});
         totalPrice = '$'+(planPrice+totalAddOnsPrice)+'/yr';
       }    
-      console.log(planPrice)
-      console.log(totalAddOnsPrice)
       return totalPrice;
     }
     

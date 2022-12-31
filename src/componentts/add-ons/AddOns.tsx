@@ -4,9 +4,21 @@ import AddOnsItem from "./AddOnsItem";
 import add_ons from "../../api/add_ons_api";
 import { useSelector } from "react-redux";
 import StateType from "../../redux/stateType";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const AddOns = () => {
   const selector = useSelector((state: StateType) => state);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (
+      selector.yourinfo.name === "" ||
+      selector.yourinfo.email === "" ||
+      selector.yourinfo.phone === ""
+    ) {
+      navigate("/");
+    }
+  }, []);
   const addOnsState = selector.add_ons;
   const period = selector.plan.period;
   return (

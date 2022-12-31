@@ -24,8 +24,8 @@ const NextPrevButtons = ({
   }
   return (
     <div className="form-buttons">
-      {next !== "" && !next_url && (  <input type='submit' value={next} className="next-button"/>)}
-      {next_url !== "" && finalStep === false && (  <Link to={next_url}><span className="next-button">{next}</span></Link>)}
+      {next !== "" && next_url === "" && (  <input type='submit' value={next} className="next-button"/>)}
+      {next_url !== "" && finalStep === undefined && (  <Link to={next_url}><span className="next-button">{next}</span></Link>)}
       {finalStep === true && (  <span onClick={finalStepHandler} className="next-button">{next}</span>)}
       {back !== undefined && back_url !== undefined && (
         <Link to={back_url}>

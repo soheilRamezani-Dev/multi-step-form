@@ -7,24 +7,35 @@ import { useSelector, useDispatch } from "react-redux";
 import StateType from "../../redux/stateType";
 import { changePeriod } from "../../redux/actions";
 import { changePlan } from "../../redux/actions";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Plans = () => {
-  const selector = useSelector((state: StateType) => state.plan);
-  const period = selector.period;
-  const selectedPlan = selector.selectedPlan;
+  const selector = useSelector((state: StateType) => state);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (
+      selector.yourinfo.name === "" ||
+      selector.yourinfo.email === "" ||
+      selector.yourinfo.phone === ""
+    ) {
+      navigate("/");
+    }
+  }, []);
+
+  const period = selector.plan.period;
+  const selectedPlan = selector.plan.selectedPlan;
   const dispatch = useDispatch();
   const [activePlan, setActivePlan] = useState(selectedPlan);
   const monthlyOrYearlyHandler = () => {
-
-    if (period ==="monthly")dispatch(changePeriod("yearly"))
+    if (period === "monthly") dispatch(changePeriod("yearly"));
     else dispatch(changePeriod("monthly"));
-    
   };
 
-  const selectPlanHandler = (index:number) :void =>{
+  const selectPlanHandler = (index: number): void => {
     setActivePlan(index);
     dispatch(changePlan(index));
-  }
+  };
   return (
     <>
       <FormHeader
@@ -35,7 +46,7 @@ const Plans = () => {
         <div className="form-main-part">
           <ul className="plans-list">
             {plans.map((plan) => (
-              <div onClick={()=>selectPlanHandler(plan.id)}>
+              <div onClick={() => selectPlanHandler(plan.id)}>
                 <PlansItem
                   key={plan.id}
                   title={plan.name}
@@ -49,21 +60,18 @@ const Plans = () => {
               </div>
             ))}
           </ul>
-          <div
-            className={`form-body monthly-yearly-container ${period}`}
-          >
+          <div className={`form-body monthly-yearly-container ${period}`}>
             <div className="monthly-title">Monthly</div>
             <div
               onClick={() => monthlyOrYearlyHandler()}
               className="toggle-button"
             >
-              
               <div className="toggle-button-circle"></div>
             </div>
             <div className="yearly-title">Yearly</div>
           </div>
         </div>
-        
+
         <NextPrevButtons
           back="Go Back"
           back_url="/"
