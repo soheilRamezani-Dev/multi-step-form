@@ -27,7 +27,6 @@ const YourInfo = () => {
         .max(13, "number must be 13 charachter"),
     }),
     onSubmit: (values) => {
-      console.log(values);
       navigate("/plans");
       dispatch(
         changePersonalInfo({

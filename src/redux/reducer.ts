@@ -53,6 +53,8 @@ const reducer = (
         ...state,
         add_ons: newAddOnsState,
       };
+      case actionType.RESET: return initialstate;
+
     default:
       return state;
   }

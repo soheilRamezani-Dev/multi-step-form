@@ -72,6 +72,7 @@ const FishingUp = () => {
           back_url="/add-ons"
           next="Confirm"
           next_url="/thank-you"
+          finalStep= {true}
         />
       </div>
     </>

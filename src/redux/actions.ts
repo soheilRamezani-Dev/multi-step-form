@@ -29,3 +29,8 @@ export const changeAddOns = (addOnsIndex: number) => {
     payload: { selectedAddOns: addOnsIndex.toString() },
   };
 };
+export const resetAllField = () => {
+  return {
+    type: actionName.RESET,
+  };
+};
