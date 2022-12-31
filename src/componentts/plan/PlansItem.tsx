@@ -1,23 +1,26 @@
-import { useState } from "react";
 
 type PlansItemInput = {
   title: string;
   icon: string;
-  monthPrice: string;
-  yearPrice: string;
+  monthPrice: number;
+  yearPrice: number;
+  period:string
   description?: string;
   active?:boolean
 };
 
-const PlansItem = ({
+
+const PlansItem= ({
   title,
   icon,
   monthPrice,
   yearPrice,
+  period,
   description,
   active=false,
-}: PlansItemInput) => {
-  const [monthlyOrYearly, setMonthlyOrYearly] = useState("monthly");
+}:PlansItemInput) => {
+  
+  
   return (
     <li className={`plan-item ${active?'active':''}`}>
       <div className="plan-icon">
@@ -25,11 +28,11 @@ const PlansItem = ({
       </div>
       <div className="plan-description">
         <h3 className="plan-title">{title}</h3>
-        {monthlyOrYearly === "monthly" ? (
-          <div className="plan-price">{monthPrice}</div>
+        {period === "monthly" ? (
+          <div className="plan-price">${monthPrice}/mo</div>
         ) : (
           <>
-            <div className="plan-price">{yearPrice}</div>
+            <div className="plan-price">${yearPrice}/yr</div>
             <div className="plan-description">{description || ""}</div>
           </>
         )}

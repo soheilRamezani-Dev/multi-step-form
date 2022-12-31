@@ -5,11 +5,9 @@ export default interface StateType {
     phone: string;
   };
   plan: {
-    name: string;
+    selectedPlan: number;
     period: string;
-    monthlyprice: string;
-    yearlyprice: string;
   };
-  add_ons: never[];
+  add_ons: number[];
   totalPrice: string;
 }

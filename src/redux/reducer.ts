@@ -8,10 +8,8 @@ const initialstate: StateType = {
     phone: "",
   },
   plan: {
-    name: "",
-    period: "",
-    monthlyprice: "",
-    yearlyprice: "",
+    selectedPlan: 0,
+    period: "monthly",
   },
   add_ons: [],
   totalPrice: "",
@@ -30,6 +28,30 @@ const reducer = (
           email: action.payload.email,
           phone: action.payload.phone,
         },
+      };
+    case actionType.UPDATE_PERIOD:
+      return {
+        ...state,
+        plan: { ...state.plan, period: action.payload.period },
+      };
+    case actionType.UPDATE_PLAN:
+      return {
+        ...state,
+        plan: { ...state.plan, selectedPlan: Number(action.payload.selectedPlan) },
+      };
+    case actionType.UPDATE_ADDONS:
+      let newAddOnsState: number[] = [];
+      const selectedAddOns = Number(action.payload.selectedAddOns);
+      if (state.add_ons.includes(selectedAddOns)) {
+        newAddOnsState = state.add_ons.filter(
+          (val: number) => val !== selectedAddOns
+        );
+      } else {
+        newAddOnsState = state.add_ons.concat(selectedAddOns);
+      }
+      return {
+        ...state,
+        add_ons: newAddOnsState,
       };
     default:
       return state;
